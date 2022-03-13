@@ -1,0 +1,83 @@
+{
+    "ignorePatterns": ["node_modules", "build", "*.js"],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "import",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "react-hooks/rules-of-hooks": 2,
+        "react-hooks/exhaustive-deps": 1,
+        "react/react-in-jsx-scope": 0,
+        "import/first": 1,
+        "import/newline-after-import": 1,
+        "import/no-duplicates": 1,
+        "react/prop-types": 0,
+        "react/display-name": 0,
+        "prettier/prettier": ["error"],
+        "import/order": [
+            1,
+            {
+                "groups": [
+                    [
+                        "builtin",
+                        "external"
+                    ],
+                    [
+                        "internal",
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "components/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "pages/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "hooks/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "utils/**",
+                        "group": "internal"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "builtin"
+                ],
+                "newlines-between": "always"
+            }
+        ]
+    }
+}

@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, PageTitle, Step } from 'components';
+import { STEPS_DATA } from 'helpers/constants';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <PageTitle>My startup progress</PageTitle>
+      {STEPS_DATA.map((step, i) => (
+        <Step
+          key={`step-${step.id}`}
+          id={step.id}
+          title={step.title}
+          num={i + 1}
+          tasks={step.tasks}
+        />
+      ))}
+    </Layout>
   );
 }
 
