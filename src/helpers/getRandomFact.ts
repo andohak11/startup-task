@@ -1,6 +1,8 @@
+import config from 'config';
+
 export default async () => {
   try {
-    const response = await fetch('https://uselessfacts.jsph.pl/random.json');
+    const response = await fetch(config.factsApi as string);
 
     if (!response.ok) {
       throw new Error();
@@ -8,8 +10,9 @@ export default async () => {
 
     const result = await response.json();
 
-    return result.text;
+    return Promise.resolve(result.text);
   } catch (_) {
     alert('Something went wrong');
+    return Promise.reject();
   }
 };
