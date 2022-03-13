@@ -7,7 +7,7 @@
 npm install
 ```
 
-4) Run the project in development mode 
+2) Run the project in development mode 
 ```
 npm start 
 ```
